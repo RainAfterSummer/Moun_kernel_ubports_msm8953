@@ -5,7 +5,7 @@
 
 /dts-v1/;
 
-#include "msm8953-qrd-sku3-tffany-common.dtsi"
+#include "msm8953-qrd-sku3-tiffany-common.dtsi"
 
 / {
 	firmware {
