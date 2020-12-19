@@ -295,22 +295,6 @@ static int change_profile_perms(struct aa_profile *profile,
 				u32 request, unsigned int start,
 				struct aa_perms *perms)
 {
-	struct file_perms perms;
-	struct path_cond cond = { };
-	unsigned int state;
-
-	if (unconfined(profile)) {
-		perms.allow = AA_MAY_CHANGE_PROFILE | AA_MAY_ONEXEC;
-		perms.audit = perms.quiet = perms.kill = 0;
-		return perms;
-	} else if (!profile->file.dfa) {
-		return nullperms;
-	} else if (ns == profile->ns) {
-		/* try matching against rules with out namespace prepended */
-		aa_str_perms(profile->file.dfa, start, name, &cond, &perms);
-		if (COMBINED_PERM_MASK(perms) & request)
-			return perms;
-
 	if (profile_unconfined(profile)) {
 		perms->allow = AA_MAY_CHANGE_PROFILE | AA_MAY_ONEXEC;
 		perms->audit = perms->quiet = perms->kill = 0;
