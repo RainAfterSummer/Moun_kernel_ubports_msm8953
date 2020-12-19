@@ -1,0 +1,5 @@
+make ARCH=arm64 O=../out ubuntu_Moun_tiffany_defconfig
+make -j16 O=../out \
+ARCH=arm64 \
+CROSS_COMPILE=~/android/PixelExperience/eleven/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android- \
+CROSS_COMPILE_ARM32=~/android/PixelExperience/eleven/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/bin/arm-linux-androideabi- \
